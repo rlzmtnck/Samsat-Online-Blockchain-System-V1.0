@@ -40,13 +40,13 @@ app.get('/', function(req, res, next) {
         if (err) {
             req.flash('error', err)
             res.render('samsat/listdata', {
-                title: 'List Data',
+                title: 'List Data | Samsat Online',
                 data: ''
             })
         } else {
             // render to views/user/list.ejs template file
             res.render('samsat/listdata', {
-                title: 'List Data',
+                title: 'List Data | Samsat Online',
                 data: result
             })
         }
@@ -121,7 +121,7 @@ app.post('/add', function(req, res, next){
 
                 // render to views/user/add.ejs
                 res.render('samsat/add', {
-                    title: 'Tambah Data Baru',
+                    title: 'Tambah Data Baru | Samsat Online',
                     nopol: docs.nopol,
                     nama: docs.nama,
                     alamat: docs.alamat,
@@ -156,7 +156,7 @@ app.post('/add', function(req, res, next){
          * because req.param('name') is deprecated
          */
         res.render('samsat/add', {
-            title: 'Tambah Data Baru',
+            title: 'Tambah Data Baru | Samsat Online',
             nopol: req.body.nopol,
             nama: req.body.nama,
             alamat: req.body.alamat,
@@ -179,7 +179,7 @@ app.get('/edit/(:id)', function(req, res, next){
         else { // if user found
             // render to views/user/edit.ejs template file
             res.render('samsat/edit', {
-                title: 'Edit Data',
+                title: 'Edit Data | Samsat Online',
                 //data: rows[0],
                 id: result[0]._id,
                 nopol: result[0].nopol,
