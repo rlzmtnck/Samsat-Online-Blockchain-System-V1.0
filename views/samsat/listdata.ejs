@@ -1,0 +1,51 @@
+<%- include ../layouts/header.ejs %>
+
+<% if (messages.error) { %>
+    <p style="color:red"><%- messages.error %></p>
+<% } %>
+
+<% if (messages.success) { %>
+    <p style="color:green"><%- messages.success %></p>
+<% } %>
+<a class="btn btn-info" href='/samsat/add'>Tambah
+<a class="btn btn-info" href='/'>Home</a>
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+        <th>NOPOL</th>
+        <th>Pemilik</th>
+        <th>Alamat</th>
+        <th>Hash</th>
+        <th>Dibuat</th>
+        <th>Aksi</th>
+    </tr>
+  </thead>
+
+    <% if (data) { %>
+    <% data.forEach(function(samsat){ %>
+        <tr>
+            <td><%= samsat.nopol %></td>
+            <td><%= samsat.nama %></td>
+            <td><%= samsat.alamat %></td>
+            <td><%= samsat.block.hash %></td>
+            <td><%= samsat.block.timestamp %></td>
+            <td>
+                <div style="float:left">
+                    <a class="btn btn-warning" href='/samsat/edit/<%= samsat._id %>'>Edit</a> &nbsp;
+                    <form method="post" action="/samsat/delete/<%= samsat._id %>" style="float:right">
+                        <input class="btn btn-danger" type="submit" name="delete" value='Delete' onClick="return confirm('Are you sure you want to delete?')" />
+                        <input type="hidden" name="_method" value="DELETE" />
+                    </form>
+                </div>
+            </td>
+        </tr>
+    <% }) %>
+    <% } %>
+
+</table>
+
+<!--
+including footer content which is common for all pages
+-->
+<%- include ../layouts/footer.ejs %>
+<!-- code by @ipungdev -->
