@@ -40,13 +40,13 @@ app.get('/', function(req, res, next) {
         if (err) {
             req.flash('error', err)
             res.render('samsat/listdata', {
-                title: 'List Data | Samsat Online',
+                title: 'Admin Panel | Samsat Online',
                 data: ''
             })
         } else {
             // render to views/user/list.ejs template file
             res.render('samsat/listdata', {
-                title: 'List Data | Samsat Online',
+                title: 'Admin Panel | Samsat Online',
                 data: result
             })
         }
