@@ -1,7 +1,8 @@
 {
-  "name": "crudsamsat",
-  "version": "0.0.0",
-  "private": true,
+  "name": "samsat",
+  "version": "1.0.0",
+  "description": "node app ",
+  "main": "app.js",
   "scripts": {
     "start": "node ./bin/www"
   },
